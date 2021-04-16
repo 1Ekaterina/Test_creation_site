@@ -5,9 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>start</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="start">
+    <div class="container">
+        <header class="margin">
+        <div class="addIcon">
+           <input class="nameText" type="text" value="Название">
+            <span class="fa fa-pencil fa-2x"></span>
+        </div>
+        <input class="descript" type="text" value="Описание">
+        <div class="checkbox_header">
+            <label class="checkbox_header__text"><input class="checkbox_header__" type="checkbox" value="Тестирование">Тестирование</label>
+            <label class="checkbox_header__text"><input class="checkbox_header__" type="checkbox" value="Опрос">Опрос</label>
+        </div>
+        </header>
+        <main>
+            <div class="block radio_One_from_the_list">
+                <div class="block__"><span class="fa fa-circle"></span><span class="fa fa-circle"></span><span class="fa fa-circle"></span></div>
+                <div class="label">
+                    <p class="caption">Вопрос 1</p>
+                    <div class="mandatory-question">
+                        <p class="caption">Обязательный вопрос</p>
+                        <input class="question" type="checkbox" >
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
     
 </body>
 </html>
