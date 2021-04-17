@@ -14,7 +14,7 @@
     <div class="container">
         <header class="margin">
         <div class="addIcon">
-           <input class="nameText" type="text" value="Название">
+           <input class="nameText" type="text" placeholder="Название">
             <span class="fa fa-pencil fa-2x"></span>
         </div>
         <input class="descript" type="text" value="Описание">
@@ -24,7 +24,8 @@
         </div>
         </header>
         <main>
-            <div class="block radio_One_from_the_list">
+            <div class="mainBlock">
+                <div class="block radio_One_from_the_list">
                 <div class="block__"><span class="fa fa-circle"></span><span class="fa fa-circle"></span><span class="fa fa-circle"></span></div>
                 <div class="label">
                     <p class="caption">Вопрос 1</p>
@@ -33,8 +34,23 @@
                         <input class="question" type="checkbox" >
                     </div>
                 </div>
-
+                <select name="variant" id="" class="option">
+                    <option class="option__" value="">Текст (строка)</option>
+                    <option class="option__" value="">Один из списка</option>
+                    <option class="option__" value="">Несколько из списка</option>
+                    <option class="option__" value="">Шкала</option>
+                    <option class="option__" value="">Сетка (один в строке)</option>
+                    <option class="option__" value="">Сетка (несколько в строке)</option>    
+                </select>
+                </div>
+                <div class="add">
+                    
+                    <a href="#" class="fa fa-plus-circle fa-2x"></a>
+                    <a href="#" class="parag">P</a>
+                    <a href="#" class="fa fa-trash fa-2x"></a>
+                </div>
             </div>
+            
         </main>
     </div>
     
