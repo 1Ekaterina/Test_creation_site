@@ -18,30 +18,40 @@
             <span class="fa fa-pencil fa-2x"></span>
         </div>
         <input class="descript" type="text" value="Описание">
-        <div class="checkbox_header">
+        <!-- <div class="checkbox_header">
             <label class="checkbox_header__text"><input class="checkbox_header__" type="checkbox" value="Тестирование">Тестирование</label>
             <label class="checkbox_header__text"><input class="checkbox_header__" type="checkbox" value="Опрос">Опрос</label>
-        </div>
+        </div> -->
         </header>
         <main>
             <div class="mainBlock">
-                <div class="block radio_One_from_the_list">
-                <div class="block__"><span class="fa fa-circle"></span><span class="fa fa-circle"></span><span class="fa fa-circle"></span></div>
-                <div class="label">
-                    <p class="caption">Вопрос 1</p>
-                    <div class="mandatory-question">
-                        <p class="caption">Обязательный вопрос</p>
-                        <input class="question" type="checkbox" >
+                <div class="block">
+                    <div class="block__"><span class="fa fa-circle"></span><span class="fa fa-circle"></span><span class="fa fa-circle"></span></div>
+                    <div class="label">
+                        <p class="caption">Вопрос 1</p>
+                        <div class="mandatory-question">
+                            <p class="caption">Обязательный вопрос</p>
+                            <input class="question" type="checkbox" >
+                        </div>
                     </div>
-                </div>
-                <select name="variant" id="" class="option">
-                    <option class="option__" value="">Текст (строка)</option>
-                    <option class="option__" value="">Один из списка</option>
-                    <option class="option__" value="">Несколько из списка</option>
-                    <option class="option__" value="">Шкала</option>
-                    <option class="option__" value="">Сетка (один в строке)</option>
-                    <option class="option__" value="">Сетка (несколько в строке)</option>    
-                </select>
+                    <select name="variant" id="" class="option">
+                        <option class="option__" value="">Текст (строка)</option>
+                        <option class="option__" value="">Один из списка</option>
+                        <option class="option__" value="">Несколько из списка</option>
+                        <option class="option__" value="">Шкала</option>
+                        <option class="option__" value="">Сетка (один в строке)</option>
+                        <option class="option__" value="">Сетка (несколько в строке)</option>    
+                    </select>
+                    <div class="allBLOCK">
+                        <div class="radio_text">
+                            <p class="text">Правильный ответ:</p>
+                            <input class="input_text" type="text">
+                        </div>
+                        <div class="one_from_the_list">
+                            <label for=""><input class="one_from_the_list__" type="radio"><input class="descript" value="Вариант 1" type="text"></label>
+                        </div>
+
+                    </div>
                 </div>
                 <div class="add">
                     
@@ -49,6 +59,7 @@
                     <a href="#" class="parag">P</a>
                     <a href="#" class="fa fa-trash fa-2x"></a>
                 </div>
+                
             </div>
             
         </main>

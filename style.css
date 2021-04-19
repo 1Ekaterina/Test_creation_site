@@ -159,7 +159,7 @@ a {
   display: flex;
 }
 
-.checkbox_header__text, .option {
+.checkbox_header__text, .option, .text, .input_text {
   font-size: 20px;
   line-height: 25px;
   color: #FFFFFF;
@@ -187,9 +187,9 @@ a {
 
 .block {
   background: #222222;
-  height: 360px;
   width: 1070px;
   border: 1px solid #CFACFC;
+  padding-bottom: 30px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -326,5 +326,29 @@ a {
   color: #FFFFFF;
   font-family: Days One;
   margin-bottom: 10px;
+}
+
+.allBLOCK {
+  margin-left: 60px;
+}
+
+.text {
+  margin-bottom: 10px;
+}
+
+.input_text {
+  border: 1px solid #FFFFFF;
+  width: 940px;
+  height: 90px;
+  background: none;
+  outline: none;
+}
+
+.radio_text {
+  display: none;
+}
+
+.one_from_the_list__ {
+  margin-right: 15px;
 }
 /*# sourceMappingURL=style.css.map */

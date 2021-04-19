@@ -121,11 +121,11 @@ a{
 }
 .block{
     background: #222222;
-    height: 360px;
+    //height: 360px;
     width: 1070px;
     border: 1px solid #CFACFC;
     //border-top: 16px solid #CFACFC;
-    
+    padding-bottom: 30px;
     box-sizing:border-box;
 }
 .block__{
@@ -222,4 +222,26 @@ a{
     color:#FFFFFF;
     font-family: Days One;
     margin-bottom: 10px;
+}
+.allBLOCK{
+    margin-left: 60px;
+}
+.text{
+    @extend %text;
+    margin-bottom: 10px;
+}
+.input_text{
+    border: 1px solid #FFFFFF;
+    width: 940px;
+    height: 90px;
+    background:none;
+    outline: none;
+    @extend %text;
+}
+.radio_text{
+    display: none;
+}
+.one_from_the_list__{
+    margin-right: 15px;
+    
 }
