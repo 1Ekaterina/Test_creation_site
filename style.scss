@@ -21,12 +21,11 @@
     margin-top: 110px;
 }
 .caption{
-    font-family: 'Days One', sans-serif;
-    src: url("/DaysOne-Regular.ttf") format("truetype");
     font-weight: 900;
     font-size: 64px;
     line-height: 81px;
-    color: #FFFFFF;
+    margin-bottom: 0 !important;
+    border-bottom: none !important;
 }
 a{
     text-decoration: none;
@@ -88,9 +87,13 @@ a{
     @extend %Input_none;
     font-size: 24px;
     line-height: 30px;
-    border-bottom: solid 1px white;
+    
     margin-bottom: 25px;
 }
+.descript:focus{
+    border-bottom: solid 1px white;
+}
+
 .checkbox_header{
     display: flex;
 }
@@ -132,8 +135,11 @@ a{
     height: 16px;
     background-color:#CFACFC;
     justify-content: center;
-    display: flex;
+    display: none;
     align-items:center;
+}
+.block:hover .block__{
+    display: flex;
 }
 .fa-circle {
     font-size: 10px;
@@ -241,7 +247,60 @@ a{
 .radio_text{
     display: none;
 }
-.one_from_the_list__{
-    margin-right: 15px;
-    
+
+.margin_bottom{
+    margin-bottom: 0 !important;
+    margin-left: 30px;
 }
+.form_radio {
+    margin-bottom: 10px;
+    margin-top: 25px;
+}
+.form_radio:first-of-type{
+    margin-top: 0;
+}
+
+.form_radio input[type=radio] {
+    display: none;
+}
+
+.form_radio label {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    padding-left: 25px;
+    margin-right: 0;
+    line-height: 18px;
+    user-select: none;
+}
+
+.form_radio label:before {
+    content: "";
+    display: inline-block;
+    width: 27px;
+    height: 27px;
+    position: absolute;
+    left: 0;
+    bottom: 1px;
+    border: 2px solid #FFF;
+    border-radius: 50%;
+}
+
+/* Checked */
+.form_radio input[type=radio]:checked+label:before {
+    background-color: #FFFFFF;
+}
+.add_form_radio{
+    padding: 5px 10px;
+    background: none;
+    border:none;
+    margin-top: 25px; 
+    @extend %text;
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+.one_from_the_list{
+    display: none;
+}
+
+
+

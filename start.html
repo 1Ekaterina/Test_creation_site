@@ -28,7 +28,7 @@
                 <div class="block">
                     <div class="block__"><span class="fa fa-circle"></span><span class="fa fa-circle"></span><span class="fa fa-circle"></span></div>
                     <div class="label">
-                        <p class="caption">Вопрос 1</p>
+                        <input type="text" class="caption descript" value="Вопрос 1">
                         <div class="mandatory-question">
                             <p class="caption">Обязательный вопрос</p>
                             <input class="question" type="checkbox" >
@@ -47,8 +47,37 @@
                             <p class="text">Правильный ответ:</p>
                             <input class="input_text" type="text">
                         </div>
+                        <div class="a few from the list">
+                            <div class="form_checkbox">
+                                <input id="checkbox-1" type="checkbox" name="checkbox" >
+                                <label for="checkbox-1"><input class="descript margin_bottom" value="Вариант 1" type="text"></label>
+                            </div>
+                            <div class="form_checkbox">
+                                <input id="checkbox-2" type="checkbox" name="checkbox" >
+                                <label for="checbox-2"><input class="descript margin_bottom" value="Вариант 2" type="text"></label>
+                            </div>
+                            <button class="add_form_checkbox ">
+                               <!-- <input class="add_none" type="radio" name="radio" >--> 
+                                Добавить вариант
+                            </button>
+                            
+                            <!--<label for="var1"><input id="var1" class="one_from_the_list__" type="radio"><input class="descript margin_bottom" value="Вариант 1" type="text"></label>-->
+                        </div>
                         <div class="one_from_the_list">
-                            <label for=""><input class="one_from_the_list__" type="radio"><input class="descript" value="Вариант 1" type="text"></label>
+                            <div class="form_radio">
+                                <input id="radio-1" type="radio" name="radio" >
+                                <label for="radio-1"><input class="descript margin_bottom" value="Вариант 1" type="text"></label>
+                            </div>
+                            <div class="form_radio">
+                                <input id="radio-2" type="radio" name="radio" >
+                                <label for="radio-2"><input class="descript margin_bottom" value="Вариант 2" type="text"></label>
+                            </div>
+                            <button class="add_form_radio ">
+                               <!-- <input class="add_none" type="radio" name="radio" >--> 
+                                Добавить вариант
+                            </button>
+                            
+                            <!--<label for="var1"><input id="var1" class="one_from_the_list__" type="radio"><input class="descript margin_bottom" value="Вариант 1" type="text"></label>-->
                         </div>
 
                     </div>
