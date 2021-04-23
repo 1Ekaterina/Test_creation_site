@@ -285,7 +285,7 @@ a {
   margin-top: 0;
 }
 
-.form_radio input[type=radio] {
+.form_radio input[type=radio], input[type=checkbox] {
   display: none;
 }
 

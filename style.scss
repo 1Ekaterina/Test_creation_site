@@ -286,7 +286,6 @@ a{
     border-radius: 50%;
 }
 
-/* Checked */
 .form_radio input[type=radio]:checked+label:before {
     background-color: #FFFFFF;
 }
@@ -301,6 +300,58 @@ a{
 .one_from_the_list{
     display: none;
 }
+.form_checkbox input[type=checkbox] {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    display: block;
+    width: 0;
+    height: 0;
+}
+.form_checkbox label {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    padding-left: 25px;
+    margin-right: 0;
+    line-height: 18px;
+    user-select: none;
+}
 
+.form_checkbox label:before {
+    content: "";
+    display: inline-block;
+    width: 27px;
+    height: 27px;
+    position: absolute;
+    left: 0;
+    bottom: 1px;
+    border: 2px solid #FFF;
+    
+}
+
+.form_checkbox input[type=checkbox]:checked+label:before {
+    background-color: #FFFFFF;
+}
+
+.add_form_checkbox {
+    padding: 5px 10px;
+    background: none;
+    border: none;
+    margin-top: 25px;
+    @extend %text;
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+.form_checkbox {
+    margin-bottom: 10px;
+    margin-top: 25px;
+}
+
+.form_checkbox:first-of-type {
+    margin-top: 0;
+}
+.a_few_from_the_list{
+    display: none;
+}
 
 
