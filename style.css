@@ -152,7 +152,7 @@ a {
 }
 
 .descript:focus {
-  border-bottom: solid 1px white;
+  border-bottom: 1px solid white !important;
 }
 
 .checkbox_header {
@@ -161,7 +161,7 @@ a {
   display: flex;
 }
 
-.checkbox_header__text, .option, .text, .input_text, .add_form_radio, .add_form_checkbox {
+.checkbox_header__text, .option, .text, .input_text, .add_form_radio, .add_form_checkbox, .scale_atribut {
   font-size: 20px;
   line-height: 25px;
   color: #FFFFFF;
@@ -469,5 +469,135 @@ a {
 
 .a_few_from_the_list {
   display: none;
+}
+
+.option_margin:last-of-type {
+  margin: 0 0 30px 20px !important;
+}
+
+.option_margin:first-of-type {
+  margin: 0 20px 30px 0 !important;
+}
+
+.atribut {
+  color: #FFF;
+}
+
+.scale__ {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.scale__:last-of-type {
+  margin-top: 30px;
+}
+
+.scale_atribut {
+  font-weight: bold;
+}
+
+.scale {
+  display: none;
+}
+
+.Grid_one-per-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.caption_margin {
+  margin-bottom: 20px;
+}
+
+.left .scale__:first-of-type {
+  margin-top: 20px;
+}
+
+.right .form_radio:first-of-type {
+  margin-top: 20px;
+}
+
+.left, .right {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.Grid_one-per-row {
+  display: none;
+}
+
+.Grid_multiple-in-a-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.right .form_checkbox:first-of-type {
+  margin-top: 20px;
+}
+
+.paragraph {
+  margin-top: 10%;
+  background: #222222;
+  border: 1px solid #CFACFC;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 1070px;
+  margin-bottom: 100px;
+}
+
+.razdel {
+  background: #648CE3;
+  height: 55px;
+  padding: 15px 60px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.desc_margin {
+  margin: 30px 60px;
+}
+
+.button_start {
+  border: 3px solid #CFACFC;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 15px 35px;
+  font-family: 'Days One', sans-serif;
+  src: url("/DaysOne-Regular.ttf") format("truetype");
+  font-weight: 900;
+  font-size: 26px;
+  line-height: 33px;
+  background: #CFACFC;
+  color: #FFFFFF;
+  margin-top: 120px;
+}
+
+.button_start:hover {
+  color: #CFACFC;
+  background: none;
+}
+
+.center .but {
+  text-align: center;
+}
+
+.caption_end {
+  font-size: 64px;
+  line-height: 81px;
+}
+
+.MainBlock_end {
+  margin-top: 10%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 70px 90px;
+  text-align: center;
 }
 /*# sourceMappingURL=style.css.map */
