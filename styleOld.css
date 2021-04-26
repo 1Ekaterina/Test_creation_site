@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.index{
+    background-image: url(img/mainPage.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    display: flex;
+    justify-content: center;
+}
+.MainBlock{
+    margin-top: 10%;
+    background: rgba(0, 0, 0, 0.4);
+    border: 10px solid #CFACFC;
+    box-sizing: border-box;
+    padding: 70px 90px;
+    text-align: center;
+}
+.buttonLink{
+    margin-top: 110px;
+}
+.caption{
+    font-family: 'Days One', sans-serif;
+    src: url("/DaysOne-Regular.ttf") format("truetype");
+    font-weight: 900;
+    font-size: 64px;
+    line-height: 81px;
+    color: #FFFFFF;
+}
+a{
+    text-decoration: none;
+}
+.button{
+    border: 3px solid #CFACFC;
+    box-sizing: border-box;
+    padding: 15px 35px;
+    font-family: 'Days One', sans-serif;
+    src: url("/DaysOne-Regular.ttf") format("truetype");
+    font-weight: 900;
+    font-size: 26px;
+    line-height: 33px;
+    color: #CFACFC;
+}
+.button_margin{
+    margin-right: 125px;
+}
+.button:hover{
+    background: #CFACFC;
+    color: #FFFFFF;
+}
