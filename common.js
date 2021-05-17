@@ -1,7 +1,10 @@
 $(document).ready(function() {
 
+	//количество вопросов
+	var num_q=1;
+	document.getElementById("numOfQ").value="Вопрос "+num_q;
 
-	//var SelectedObj=document.getElementById("Selection");
+	$(".paragraph").addClass('hidden');
 
 	document.querySelector('#Selection').addEventListener('change', function(e){
 		if (e.target.value == 1){
@@ -64,6 +67,19 @@ $(document).ready(function() {
 			$(".Grid_multiple-in-a-row").removeClass('hidden');
 			$(".Grid_multiple-in-a-row").addClass('flex');
 		};
+	});
+
+	var que=document.getElementById("que");
+	var center=document.getElementById("center");
+	const $block = $('#que').clone();
+
+	$("#add").click(function(){
+		num_q+=1;
+		$(que).after($block.clone());
+		//document.center.append(Block);
+	});
+	$(document).on('click', '#del', function() {
+ 		$(que).parent().remove();
 	});
 	
 

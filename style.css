@@ -24,6 +24,7 @@
           box-sizing: border-box;
   padding: 70px 90px;
   text-align: center;
+  display: block;
 }
 
 .buttonLink {
@@ -560,6 +561,7 @@ a {
   background: #CFACFC;
   color: #FFFFFF;
   margin-top: 120px;
+  display: block;
 }
 
 .button_start:hover {
@@ -569,7 +571,8 @@ a {
 
 .center .but {
   text-align: center;
-}
+  width: 300px;
+  margin-left: 370px;
 
 .caption_end {
   font-size: 64px;
