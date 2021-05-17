@@ -2,7 +2,9 @@ $(document).ready(function() {
 
 	//количество вопросов
 	var num_q=1;
+	var num_b=1;
 	document.getElementById("numOfQ").value="Вопрос "+num_q;
+	
 
 	$(".paragraph").addClass('hidden');
 
@@ -71,12 +73,23 @@ $(document).ready(function() {
 
 	var que=document.getElementById("que");
 	var center=document.getElementById("center");
+	var button=document.getElementById("but");
 	const $block = $('#que').clone();
+	$('#que').wrapAll('<div id="qs"/>');
+	document.getElementById("que").id="main";
+	document.getElementById("qs").id=num_b;
+
 
 	$("#add").click(function(){
 		num_q+=1;
-		$(que).after($block.clone());
-		//document.center.append(Block);
+		num_b+=1;
+		$(button).before($block.clone());
+		$('#que').wrapAll('<div id="qss"/>');
+		document.getElementById("qss").id=num_b;
+		document.getElementById("que").id=num_b;
+		document.getElementById("numOfQ").id="numOfQ"+1;
+		//document.getElementById("que").id=num_b;
+		document.getElementById("numOfQ").value="Вопрос "+num_q;
 	});
 	$(document).on('click', '#del', function() {
  		$(que).parent().remove();
