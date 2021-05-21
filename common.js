@@ -3,10 +3,22 @@ $(document).ready(function() {
 	//количество вопросов
 	var num_q=1;
 	var num_b=1;
+	var act_b=1;
 	document.getElementById("numOfQ").value="Вопрос "+num_q;
 	
 
 	$(".paragraph").addClass('hidden');
+
+	$(".mainBlock").click(function(){
+		$(".block__").removeClass('act_b');
+		$(".block__").addClass('hidden');
+	});
+	var f_b=document.getElementById("active");
+	f_b.classList.remove("hidden");
+	f_b.classList.add("act_b");
+	//$(".block__").removeClass('hidden');
+	//$(".block__").addClass('act_b');
+
 
 	document.querySelector('#Selection').addEventListener('change', function(e){
 		if (e.target.value == 1){
