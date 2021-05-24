@@ -30,10 +30,12 @@ $(document).ready(function() {
 	var act_b=1;//активный блок
 	document.getElementById("numOfQ").value="Вопрос "+num_q;
 
-	/*$().click(function(){
+	$(".block").click(function(){
+		//this.removeClass('act_b');
+		//this.addClass('hidden');
 		$(".block__").removeClass('act_b');
 		$(".block__").addClass('hidden');
-	});*/
+	});
 	var f_b=document.getElementById("active");
 	f_b.classList.remove("hidden");
 	f_b.classList.add("act_b");
@@ -180,11 +182,6 @@ $(document).ready(function() {
 	const que=document.getElementById("que");
 	var center=document.getElementById("center");
 	var button=document.getElementById("but");
-	
-	//const $block = $('#que').clone();
-	$('#que').wrapAll(`<div id='${num_b}'/>`);
-	//document.getElementById("que").id="main";
-	//document.getElementById("qs").id=num_b;
 
 	//ДОБАВЛЕНИЕ БЛОКА
 	$("#add").click(function(){
@@ -198,7 +195,7 @@ $(document).ready(function() {
                 <span class="fa fa-circle"></span>
             </div>
             <div class="label">
-                <input type="text" class="caption descript" id="numOfQ" value="">
+                <input type="text" class="caption descript numOfQ" id="numOfQ" value="">
                 <div class="mandatory-question">
                     <p class="caption">Обязательный вопрос</p>
                     <input class="question" type="checkbox" >
@@ -222,11 +219,11 @@ $(document).ready(function() {
         $(center).append(newBlock);
         $(".newB").wrapAll(`<div id='${num_b}'/>`);
         $(".newB").removeClass('newB');
-		//document.getElementById("qss").id=num_b;
-		//document.getElementById("que").id=num_b;
-		//document.getElementById("numOfQ").id="numOfQ"+1;
-		//document.getElementById("numOfQ").value="Вопрос "+num_q;
+		document.querySelector(".numOfQ").value="Вопрос "+num_q;
+		$(".numOfQ").removeClass('numOfQ');
 	});
+
+	//УДАЛЕНИЕ БЛОКА
 	$(document).on('click', '#del', function() {
  		$(que).parent().remove();
 	});
