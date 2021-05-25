@@ -30,17 +30,56 @@ $(document).ready(function() {
 	var act_b=1;//активный блок
 	document.getElementById("numOfQ").value="Вопрос "+num_q;
 
+	var num_bq=[];
+	//console.log ($(num_q).lenght);
+	function createVars(q){
+		for (var i=1; i<=q; i++ )
+    	{
+        	num_bq[i] = i;
+        	//console.log (num_bq[i]);
+    	}
+	};
+	
+
+
 	var blockID="";
 	var center=document.getElementById("center");
 	var mainBlock=document.querySelector(".mainBlock");
 	var block__=document.querySelector(".block__");
-	/*$(".block__").focusin(function(){
-		this.classList.add('act_b');
-	})*/;
-	block__.addEventListener("focusin", () => this.classList.remove('hidden'));
-	block__.addEventListener("focusin", () => this.classList.add('act_b'));
-	block__.addEventListener("focusout", () => this.classList.remove('act_b'));
-  	block__.addEventListener("focusout", () => this.classList.add('hidden'));
+	$(center).focusin(function(){
+		block__.classList.add('act_b');
+	});
+	var cl_b=0;
+
+	document.querySelector(".mainBlock").addEventListener('click',changeAct);
+	function changeAct(){
+		newActB=this;
+		console.log(newActB);
+		if (newActB.contains(block__)){
+			block__.classList.remove('hidden');
+			block__.classList.add('act_b');
+		}
+	}
+
+	/*center.addEventListener("focusin", () => 
+		{
+			console.log("focus");
+			//var p=this.id;
+			
+			for (var j=1; j<=num_q; j++ ){
+				if (this.id==num_bq[j]){
+					console.log(this);
+					//this === document.activeElement;
+					cl_b=j;
+					console.log(cl_b);
+					console.log("true");
+				}
+			}
+		});*/
+		//this.block__.classList.remove('hidden'));
+	//center.addEventListener("focusin", () => this.block__.classList.add('act_b'));
+	//center.addEventListener("focusout", () => this.block__.classList.remove('act_b'));
+  	//center.addEventListener("focusout", () => this.block__.classList.add('hidden'));
 	/*$(center).onclick=function(){
 		var blockID= this.id;
 		console.log(blockID);
@@ -242,6 +281,7 @@ $(document).ready(function() {
         $(".newB").removeClass('newB');
 		document.querySelector(".numOfQ").value="Вопрос "+num_q;
 		$(".numOfQ").removeClass('numOfQ');
+		createVars(num_q);
 	});
 
 	//УДАЛЕНИЕ БЛОКА
