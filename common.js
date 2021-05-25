@@ -30,12 +30,31 @@ $(document).ready(function() {
 	var act_b=1;//активный блок
 	document.getElementById("numOfQ").value="Вопрос "+num_q;
 
-	$(".block").click(function(){
-		//this.removeClass('act_b');
-		//this.addClass('hidden');
-		$(".block__").removeClass('act_b');
-		$(".block__").addClass('hidden');
-	});
+	var blockID="";
+	var center=document.getElementById("center");
+	var mainBlock=document.querySelector(".mainBlock");
+	var block__=document.querySelector(".block__");
+	/*$(".block__").focusin(function(){
+		this.classList.add('act_b');
+	})*/;
+	block__.addEventListener("focusin", () => this.classList.remove('hidden'));
+	block__.addEventListener("focusin", () => this.classList.add('act_b'));
+	block__.addEventListener("focusout", () => this.classList.remove('act_b'));
+  	block__.addEventListener("focusout", () => this.classList.add('hidden'));
+	/*$(center).onclick=function(){
+		var blockID= this.id;
+		console.log(blockID);
+	}*/
+	/*$(bb).click(function(){
+		var blockID=this.id;
+		console.log(blockID);
+	});*/
+	/*$(".center").onfocus=function(){
+		var blockID=this.id;
+		console.log(blockID);
+		//$(".block__").removeClass('act_b');
+		//$(".block__").addClass('hidden');
+	};*/
 	var f_b=document.getElementById("active");
 	f_b.classList.remove("hidden");
 	f_b.classList.add("act_b");
@@ -43,8 +62,10 @@ $(document).ready(function() {
 	//$(".block__").addClass('act_b');
 
 	//СМЕНА БЛОКА
+	
 	const forAll=document.getElementById("ForAll");
 	document.querySelector('#Selection').addEventListener('change', function(e){
+		
 		ChangeBlock(e.target.value);
 	});
 	const ChangeBlock=(index) => {
@@ -180,7 +201,7 @@ $(document).ready(function() {
 
 	//РАЗДЕЛЕНИЕ БЛОКОВ
 	const que=document.getElementById("que");
-	var center=document.getElementById("center");
+	
 	var button=document.getElementById("but");
 
 	//ДОБАВЛЕНИЕ БЛОКА
@@ -217,7 +238,7 @@ $(document).ready(function() {
             </div>
         </div>`;
         $(center).append(newBlock);
-        $(".newB").wrapAll(`<div id='${num_b}'/>`);
+        $(".newB").wrapAll(`<div class="mainBlock" id='${num_b}'/>`);
         $(".newB").removeClass('newB');
 		document.querySelector(".numOfQ").value="Вопрос "+num_q;
 		$(".numOfQ").removeClass('numOfQ');
