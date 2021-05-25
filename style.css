@@ -16,17 +16,6 @@
           justify-content: center;
 }
 
-.MainBlock {
-  margin-top: 10%;
-  background: rgba(0, 0, 0, 0.4);
-  border: 10px solid #CFACFC;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  padding: 70px 90px;
-  text-align: center;
-  display: block;
-}
-
 .buttonLink {
   margin-top: 110px;
 }
@@ -84,7 +73,7 @@ a {
 
 .margin {
   margin-top: 110px;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
 .addIcon {

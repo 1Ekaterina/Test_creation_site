@@ -38,6 +38,7 @@ $(document).ready(function() {
         	num_bq[i] = i;
         	//console.log (num_bq[i]);
     	}
+    	console.log (num_bq);
 	};
 	
 
@@ -46,19 +47,19 @@ $(document).ready(function() {
 	var center=document.getElementById("center");
 	var mainBlock=document.querySelector(".mainBlock");
 	var block__=document.querySelector(".block__");
-	$(center).focusin(function(){
+	/*$(center).focusin(function(){
 		block__.classList.add('act_b');
-	});
+	});*/
 	var cl_b=0;
 
 	document.querySelector(".mainBlock").addEventListener('click',changeAct);
 	function changeAct(){
-		newActB=this;
+		newActB=this.id;
 		console.log(newActB);
-		if (newActB.contains(block__)){
-			block__.classList.remove('hidden');
-			block__.classList.add('act_b');
-		}
+		//if (newActB.contains(block__)){
+		//	block__.classList.remove('hidden');
+		//	block__.classList.add('act_b');
+		//}
 	}
 
 	/*center.addEventListener("focusin", () => 
@@ -83,17 +84,8 @@ $(document).ready(function() {
 	/*$(center).onclick=function(){
 		var blockID= this.id;
 		console.log(blockID);
-	}*/
-	/*$(bb).click(function(){
-		var blockID=this.id;
-		console.log(blockID);
-	});*/
-	/*$(".center").onfocus=function(){
-		var blockID=this.id;
-		console.log(blockID);
-		//$(".block__").removeClass('act_b');
-		//$(".block__").addClass('hidden');
 	};*/
+	
 	var f_b=document.getElementById("active");
 	f_b.classList.remove("hidden");
 	f_b.classList.add("act_b");
@@ -104,7 +96,8 @@ $(document).ready(function() {
 	
 	const forAll=document.getElementById("ForAll");
 	document.querySelector('#Selection').addEventListener('change', function(e){
-		
+		//var pole=this.find(forAll);
+		//console.log(pole);
 		ChangeBlock(e.target.value);
 	});
 	const ChangeBlock=(index) => {
@@ -277,7 +270,7 @@ $(document).ready(function() {
             </div>
         </div>`;
         $(center).append(newBlock);
-        $(".newB").wrapAll(`<div class="mainBlock" id='${num_b}'/>`);
+        $(".newB").wrapAll(`<div class="mainBlock" id='${num_b}'/>`).animated("fadeInDown","fadeOutUp");
         $(".newB").removeClass('newB');
 		document.querySelector(".numOfQ").value="Вопрос "+num_q;
 		$(".numOfQ").removeClass('numOfQ');
