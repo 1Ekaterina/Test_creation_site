@@ -52,15 +52,25 @@ $(document).ready(function() {
 	});*/
 	var cl_b=0;
 
-	document.querySelector(".mainBlock").addEventListener('click',changeAct);
-	function changeAct(){
-		newActB=this.id;
+	document.querySelector(".center").addEventListener('click', function(e){
+		let newActB=e.target;
+		let forAct=this.querySelector(".block__");
+		//removeB(forAll);
+		//forAct.classList.remove('act_b');
+		//forAct.classList.add('hidden');
+		forAct.remove("#active");
+	});
+	
+	/*function changeAct(){
+		let newActB=this.getElementsByClassName("block__");
 		console.log(newActB);
+		//newActB=this.id;
+		
 		//if (newActB.contains(block__)){
 		//	block__.classList.remove('hidden');
 		//	block__.classList.add('act_b');
 		//}
-	}
+	};*/
 
 	/*center.addEventListener("focusin", () => 
 		{
@@ -86,12 +96,6 @@ $(document).ready(function() {
 		console.log(blockID);
 	};*/
 	
-	var f_b=document.getElementById("active");
-	f_b.classList.remove("hidden");
-	f_b.classList.add("act_b");
-	//$(".block__").removeClass('hidden');
-	//$(".block__").addClass('act_b');
-
 	//СМЕНА БЛОКА
 	
 	const forAll=document.getElementById("ForAll");
@@ -242,7 +246,7 @@ $(document).ready(function() {
 		num_b+=1;
 		const newBlock =
 		`<div class="block newB">
-            <div id="active" class="block__ hidden">
+            <div id="" class="block__ hidden">
                 <span class="fa fa-circle"></span>
                 <span class="fa fa-circle"></span>
                 <span class="fa fa-circle"></span>
