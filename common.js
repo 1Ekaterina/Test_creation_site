@@ -75,7 +75,6 @@ $(document).ready(function() {
 	function Choose(cho){
 		window.vars.SelB.addEventListener('change', function(b){
 			ChangeBlock(b.target.value);
-			console.log("TRUE");
 		});
 	};
 
@@ -131,14 +130,10 @@ $(document).ready(function() {
 
 	//СМЕНА БЛОКА
 	let ChangeBlock=(index) => {
-		console.log("change block");
-
 		let NBl=window.vars.newActB.querySelector("#ForAll");
-		console.log(index);
-		console.log(NBl);
 		if (index==1){
-			NBl.innerHTML=`
-			<div class="radio_text">
+			NBl.innerHTML=
+			`<div class="radio_text">
         		<p class="text">Правильный ответ:</p>
         		<input class="input_text" type="text">
    			</div>`
@@ -146,34 +141,86 @@ $(document).ready(function() {
 		else if (index==2){
 			NBl.innerHTML=`
 			<div class="one_from_the_list">
-        		<div class="form_radio">
-            		<input id="radio-1" type="radio" name="radio" >
-            		<label for="radio-1"><input class="descript margin_bottom" value="Вариант 1" type="text"></label>
+				<div id="pole_2">
+        			<div class="form_radio">
+            			<input id="radio-1" type="radio" name="radio" >
+            			<label for="radio-1"><input id="vars_2" class="descript margin_bottom" value="" type="text"></label>
+        			</div>
+        			<div class="form_radio">
+            			<input id="radio-2" type="radio" name="radio" >
+            			<label for="radio-2"><input id="vars_2" class="descript margin_bottom" value="" type="text"></label>
+        			</div>
         		</div>
-        		<div class="form_radio">
-            		<input id="radio-2" type="radio" name="radio" >
-            		<label for="radio-2"><input class="descript margin_bottom" value="Вариант 2" type="text"></label>
-        		</div>
-        		<button class="add_form_radio "> 
-            	Добавить вариант
+        		<button id="but_2" class="add_form_radio "> 
+            		Добавить вариант
         		</button>
-    		</div>`
+    		</div>`;
+    		let arr_2=[];
+    		let co_2=1;
+    		arr_2=this.querySelectorAll("#vars_2");
+    		for (var l=0; l<arr_2.length; l++ ){
+    			arr_2[l].value="Вариант "+co_2;
+    			co_2+=1;
+    		};
+    		console.log(NBl);
+    		$("#but_2").click(function(){
+    			const NewOp_2=`
+    			<div class="form_radio">
+            		<input id="radio-2" type="radio" name="radio" >
+            		<label for="radio-2"><input id="vars_2" class="descript margin_bottom" value="" type="text"></label>
+        		</div>`;
+        		let pole_2=NBl.querySelector("#pole_2");
+        		$(pole_2).append(NewOp_2);
+        		let arr_2=[];
+    			let co_2=1;
+    			arr_2=NBl.querySelectorAll("#vars_2");
+    			for (var l=0; l<arr_2.length; l++ ){
+    				arr_2[l].value="Вариант "+co_2;
+    				co_2+=1;
+    			};	
+    		});
+
 		}
 		else if (index==3){
 			NBl.innerHTML=`
 			<div class="a_few_from_the_list">
-        		<div class="form_checkbox">
-            		<input id="checkbox-1" class="checkbox" type="checkbox" name="checkbox" >
-            		<label for="checkbox-1"><input class="descript margin_bottom" value="Вариант 1" type="text"></label>
-        		</div>
-        		<div class="form_checkbox">
-            		<input id="checkbox-2" class="checkbox" type="checkbox" name="checkbox" >
-            		<label for="checkbox-2"><input class="descript margin_bottom" value="Вариант 2" type="text"></label>
+				<div id="pole_3">
+        			<div class="form_checkbox">
+            			<input id="checkbox-1" class="checkbox" type="checkbox" name="checkbox" >
+            			<label for="checkbox-1"><input id="vars_3" class="descript margin_bottom" value="" type="text"></label>
+        			</div>
+        			<div class="form_checkbox">
+            			<input id="checkbox-2" class="checkbox" type="checkbox" name="checkbox" >
+            			<label for="checkbox-2"><input id="vars_3" class="descript margin_bottom" value="" type="text"></label>
+        			</div>
         		</div>          
-        		<button class="add_form_checkbox "> 
+        		<button id="but_3" class="add_form_checkbox "> 
             		Добавить вариант
         		</button>     
-    		</div>`
+    		</div>`;
+    		let arr_3=[];
+    		let co_3=1;
+    		arr_3=this.querySelectorAll("#vars_3");
+    		for (var l=0; l<arr_3.length; l++ ){
+    			arr_3[l].value="Вариант "+co_3;
+    			co_3+=1;
+    		};
+    		$("#but_3").click(function(){
+    			const NewOp_3=`
+    			<div class="form_checkbox">
+            		<input id="checkbox-2" class="checkbox" type="checkbox" name="checkbox" >
+            		<label for="checkbox-2"><input id="vars_3" class="descript margin_bottom" value="" type="text"></label>
+        		</div>`;
+        		let pole_3=NBl.querySelector("#pole_3");
+        		$(pole_3).append(NewOp_3);
+        		let arr_3=[];
+    			let co_3=1;
+    			arr_3=NBl.querySelectorAll("#vars_3");
+    			for (var l=0; l<arr_3.length; l++ ){
+    				arr_3[l].value="Вариант "+co_3;
+    				co_3+=1;
+    			};	
+    		});
 		}
 		else if (index==4){
 			NBl.innerHTML=`
