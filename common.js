@@ -27,32 +27,30 @@ $(document).ready(function() {
 
 	window.vars={
 		SelB: "",
-		newActB:""
+		newActB:"",
+		ActLine:""
 	};
 
 	var num_q=1;//номер вопроса
 	var num_b=1;//номер блока
 	var act_b=1;//активный блок
 	document.getElementById("numOfQ").value="Вопрос "+num_q;
+	window.vars.ActLine=document.getElementById("active");
 
 	var num_bq=[];
-	//console.log ($(num_q).lenght);
 	function createVars(q){
 		for (var i=1; i<=q; i++ )
     	{
         	num_bq[i] = i;
-        	//console.log (num_bq[i]);
     	}
     	console.log (num_bq);
 	};
 	
-
 	let center=document.getElementById("center");
-	//let mainBlock=document.querySelector(".mainBlock");
-	//let block=document.querySelector(".block");
-	//let forAll=document.getElementById("ForAll");
-	//let Spi="";
+	let que=document.getElementById("que");
 
+
+	//ОТСЛЕЖИВАНИЕ НАЖАТИЯ
 	document.querySelector(".center").addEventListener('click', function(e){
 		let tar_b=e.target;
 		let block__=tar_b.querySelector(".block__");
@@ -63,22 +61,75 @@ $(document).ready(function() {
 		};
 		if (tar_b==window.vars.SelB){
 			Choose(window.vars.newActB);
-		}
-		//forAct.classList.remove('hidden');
-		//forAct.classList.add('act_b');
-		//forAct.remove("#active");
+		};
+		//СМЕНА АКТ БЛОКОВ
+		if ((window.vars.ActLine!=block__)&&(contains_1==true)){
+			window.vars.ActLine.classList.remove('act_b');
+			window.vars.ActLine.classList.add('hidden');
+			block__.classList.remove('hidden');
+			block__.classList.add('act_b');
+			window.vars.ActLine=block__;
+		};
 	});
+
 	function Choose(cho){
-		//console.log(cho);
-		//let nw=cho.querySelector("#Selection");
 		window.vars.SelB.addEventListener('change', function(b){
 			ChangeBlock(b.target.value);
 			console.log("TRUE");
 		});
 	};
+
+
+	//ДОБАВЛЕНИЕ БЛОКА
+	$("#add").click(function(){
+		num_q+=1;
+		num_b+=1;
+		const newBlock =
+		`<div class="block newB">
+            <div id="" class="block__ hidden">
+                <span class="fa fa-circle"></span>
+                <span class="fa fa-circle"></span>
+                <span class="fa fa-circle"></span>
+            </div>
+            <div class="label">
+                <input type="text" class="caption descript numOfQ" id="numOfQ" value="">
+                <div class="mandatory-question">
+                    <p class="caption">Обязательный вопрос</p>
+                    <input class="question" type="checkbox" >
+                </div>
+            </div>
+            <select name="variant" id="Selection" class="option" size="1">
+                <option class="option__" id="op_1" value="1" selected="selected">Текст (строка)</option>
+                <option class="option__" id="op_2" value="2" >Один из списка</option>
+                <option class="option__" id="op_3" value="3" >Несколько из списка</option>
+                <option class="option__" id="op_4" value="4" >Шкала</option>
+                <option class="option__" id="op_5" value="5" >Сетка (один в строке)</option>
+                <option class="option__" id="op_6" value="6" >Сетка (несколько в строке)</option>    
+            </select>
+            <div class="allBLOCK" id="ForAll">
+                <div class="radio_text">
+                    <p class="text">Правильный ответ:</p>
+                    <input class="input_text" type="text">
+                </div>                        
+            </div>
+        </div>`;
+        $(center).append(newBlock);
+        $(".newB").wrapAll(`<div class="mainBlock" id='${num_b}'/>`).animated("fadeInDown","fadeOutUp");
+        $(".newB").removeClass('newB');
+		document.querySelector(".numOfQ").value="Вопрос "+num_q;
+		$(".numOfQ").removeClass('numOfQ');
+		createVars(num_q);
+		window.vars.ActLine.classList.remove('act_b');
+		window.vars.ActLine.classList.add('hidden');
+		let b_1=document.getElementById(num_b);
+		let newBlock__=b_1.querySelector(".block__");	
+		newBlock__.classList.remove('hidden');
+		newBlock__.classList.add('act_b');
+		window.vars.ActLine=newBlock__;
+	});
 	
+
 	//СМЕНА БЛОКА
-	
 	let ChangeBlock=(index) => {
 		console.log("change block");
 
@@ -214,51 +265,6 @@ $(document).ready(function() {
 		}
 
 	};
-
-	//РАЗДЕЛЕНИЕ БЛОКОВ
-	let que=document.getElementById("que");
-	let button=document.getElementById("but");
-
-	//ДОБАВЛЕНИЕ БЛОКА
-	$("#add").click(function(){
-		num_q+=1;
-		num_b+=1;
-		const newBlock =
-		`<div class="block newB">
-            <div id="" class="block__ hidden">
-                <span class="fa fa-circle"></span>
-                <span class="fa fa-circle"></span>
-                <span class="fa fa-circle"></span>
-            </div>
-            <div class="label">
-                <input type="text" class="caption descript numOfQ" id="numOfQ" value="">
-                <div class="mandatory-question">
-                    <p class="caption">Обязательный вопрос</p>
-                    <input class="question" type="checkbox" >
-                </div>
-            </div>
-            <select name="variant" id="Selection" class="option" size="1">
-                <option class="option__" id="op_1" value="1" selected="selected">Текст (строка)</option>
-                <option class="option__" id="op_2" value="2" >Один из списка</option>
-                <option class="option__" id="op_3" value="3" >Несколько из списка</option>
-                <option class="option__" id="op_4" value="4" >Шкала</option>
-                <option class="option__" id="op_5" value="5" >Сетка (один в строке)</option>
-                <option class="option__" id="op_6" value="6" >Сетка (несколько в строке)</option>    
-            </select>
-            <div class="allBLOCK" id="ForAll">
-                <div class="radio_text">
-                    <p class="text">Правильный ответ:</p>
-                    <input class="input_text" type="text">
-                </div>                        
-            </div>
-        </div>`;
-        $(center).append(newBlock);
-        $(".newB").wrapAll(`<div class="mainBlock" id='${num_b}'/>`).animated("fadeInDown","fadeOutUp");
-        $(".newB").removeClass('newB');
-		document.querySelector(".numOfQ").value="Вопрос "+num_q;
-		$(".numOfQ").removeClass('numOfQ');
-		createVars(num_q);
-	});
 
 	//УДАЛЕНИЕ БЛОКА
 	$(document).on('click', '#del', function() {
