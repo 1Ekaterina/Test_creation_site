@@ -25,6 +25,11 @@ $(document).ready(function() {
 		]
 	}];*/
 
+	window.vars={
+		SelB: "",
+		newActB:""
+	};
+
 	var num_q=1;//номер вопроса
 	var num_b=1;//номер блока
 	var act_b=1;//активный блок
@@ -42,63 +47,53 @@ $(document).ready(function() {
 	};
 	
 
-
-	var blockID="";
-	var center=document.getElementById("center");
-	var mainBlock=document.querySelector(".mainBlock");
-	var block=document.querySelector(".block");
-	const forAll=document.getElementById("ForAll");
-	var Spi="";
+	let center=document.getElementById("center");
+	//let mainBlock=document.querySelector(".mainBlock");
+	//let block=document.querySelector(".block");
+	//let forAll=document.getElementById("ForAll");
+	//let Spi="";
 
 	document.querySelector(".center").addEventListener('click', function(e){
 		let tar_b=e.target;
-		var block__=tar_b.querySelector(".block__");
-		const SelB=document.getElementById("Selection");
-		var contains_1=tar_b.contains(block__);
-		var contains_2=tar_b.contains(SelB);
-		console.log(tar_b);
-		console.log(SelB);
+		let block__=tar_b.querySelector(".block__");
+		let contains_1=tar_b.contains(block__);
 		if (contains_1==true){
-			const newActB=tar_b;
-			//var Spi=newActB.querySelector("#Selection");
-			//console.log(newActB);
-			//console.log(Spi);	
-		}
-		else if (tar_b==SelB){
-			console.log(newActB);
-			Choose(newActB);
+			window.vars.newActB=tar_b;
+			window.vars.SelB=window.vars.newActB.querySelector("#Selection");
+		};
+		if (tar_b==window.vars.SelB){
+			Choose(window.vars.newActB);
 		}
 		//forAct.classList.remove('hidden');
 		//forAct.classList.add('act_b');
 		//forAct.remove("#active");
 	});
 	function Choose(cho){
-		//if (newActB!=""){
-			//var var_1=newActB.querySelector("#Selection");
-			console.log(cho);
-			var nw=cho.querySelector("#Selection");
-			nw.addEventListener('change', function(b){
-				ChangeBlock(b.target.value, cho);
-				console.log("TRUE");
-			});
-		//};
+		//console.log(cho);
+		//let nw=cho.querySelector("#Selection");
+		window.vars.SelB.addEventListener('change', function(b){
+			ChangeBlock(b.target.value);
+			console.log("TRUE");
+		});
 	};
 	
 	//СМЕНА БЛОКА
 	
-	const ChangeBlock=(index, bl) => {
-		console.log(bl);
-		var NBl=bl.querySelector("#ForAll");
-		
+	let ChangeBlock=(index) => {
+		console.log("change block");
+
+		let NBl=window.vars.newActB.querySelector("#ForAll");
+		console.log(index);
+		console.log(NBl);
 		if (index==1){
-			$(NBl).innerHTML=`
+			NBl.innerHTML=`
 			<div class="radio_text">
         		<p class="text">Правильный ответ:</p>
         		<input class="input_text" type="text">
    			</div>`
 		}
 		else if (index==2){
-			$(NBl).innerHTML=`
+			NBl.innerHTML=`
 			<div class="one_from_the_list">
         		<div class="form_radio">
             		<input id="radio-1" type="radio" name="radio" >
@@ -114,7 +109,7 @@ $(document).ready(function() {
     		</div>`
 		}
 		else if (index==3){
-			$(NBl).innerHTML=`
+			NBl.innerHTML=`
 			<div class="a_few_from_the_list">
         		<div class="form_checkbox">
             		<input id="checkbox-1" class="checkbox" type="checkbox" name="checkbox" >
@@ -130,7 +125,7 @@ $(document).ready(function() {
     		</div>`
 		}
 		else if (index==4){
-			$(NBl).innerHTML=`
+			NBl.innerHTML=`
 			<div class="scale">
         		<div class="variants">
             		<select name="" id="" class="option option_margin">
@@ -161,7 +156,7 @@ $(document).ready(function() {
     		</div>`
 		}
 		else if (index==5){
-			$(NBl).innerHTML=`
+			NBl.innerHTML=`
 			<div class="Grid_one-per-row">
         		<div class="left">
             		<p class="caption caption_margin">Строки:</p>
@@ -190,7 +185,7 @@ $(document).ready(function() {
     		</div>`
 		}
 		else if (index==6){
-			$(NBl).innerHTML=`
+			NBl.innerHTML=`
 			<div class="Grid_multiple-in-a-row">
             	<div class="left">
                 	<p class="caption caption_margin">Строки:</p>
@@ -221,9 +216,8 @@ $(document).ready(function() {
 	};
 
 	//РАЗДЕЛЕНИЕ БЛОКОВ
-	const que=document.getElementById("que");
-	
-	var button=document.getElementById("but");
+	let que=document.getElementById("que");
+	let button=document.getElementById("but");
 
 	//ДОБАВЛЕНИЕ БЛОКА
 	$("#add").click(function(){
