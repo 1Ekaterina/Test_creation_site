@@ -1,30 +1,6 @@
 $(document).ready(function() {
 
-	//Для запоминания вопросов и ответов
-	/*const DATA=[
-	{
-		question:'Вопрос 1',
-		ansewrs:[
-			{
-				id:'1',
-				value:'Ответ 1',
-				correct: true
-			},
-		ansewrs:[
-			{
-				id:'2',
-				value:'Ответ 2',
-				correct: false
-			},
-		ansewrs:[
-			{
-				id:'3',
-				value:'Ответ 3',
-				correct: false
-			},
-		]
-	}];*/
-
+	//ЛОКАЛЬНЫЕ ПЕРЕМЕННЫЕ
 	window.vars={
 		SelB: "",
 		newActB:"",
@@ -34,40 +10,29 @@ $(document).ready(function() {
 
 	var num_q=1;//номер вопроса
 	var num_b=1;//номер блока
-	var act_b=1;//активный блок
 	document.getElementById("numOfQ").value="Вопрос "+num_q;
 	window.vars.mainActB=document.getElementById("1");
 	window.vars.ActLine=document.getElementById("active");
 
-	var num_bq=[];
-	function createVars(q){
-		for (var i=1; i<=q; i++ )
-    	{
-        	num_bq[i] = i;
-    	}
-	};
-	
-	let center=document.getElementById("center");
-	let que=document.getElementById("que");
-
-
 	//ОТСЛЕЖИВАНИЕ НАЖАТИЯ
 	document.querySelector(".center").addEventListener('click', function(e){
-		let sideMenu;
+		let pp=`
+		<div id="side_menu" class="add">
+	        <a href="#" class="fa fa-plus-circle fa-2x" id="add"></a>
+	        <a href="#" class="parag">P</a>
+	        <a href="#" class="fa fa-trash fa-2x" id="del"></a>
+	    </div>`;
 		let tar_b=e.target;
 		let block__=tar_b.querySelector(".block__");
 		let contains_1=tar_b.contains(block__);
 		if (contains_1==true){
-			console.log(window.vars.mainActB);
-			sideMenu=window.vars.mainActB.querySelector("#side_menu");
-			console.log(sideMenu);
-			sideMenu.classList.add('hidden');
+			let mainActB=window.vars.mainActB;
+			mainActB.querySelector("#side_menu").remove();
 			window.vars.newActB=tar_b;
-			let nID=window.vars.newActB.parentNode.id;
+			nID=window.vars.newActB.parentNode.id;
 			window.vars.mainActB=document.getElementById(nID);
-			sideMenu=window.vars.mainActB.querySelector("#side_menu");
-			sideMenu.classList.remove('hidden');
-			let mainBB=window.vars.newActB.querySelector(".mainBlock");
+			mainActB=window.vars.mainActB;
+			$(mainActB).append(pp);
 			window.vars.SelB=window.vars.newActB.querySelector("#Selection");
 		};
 		if (tar_b==window.vars.SelB){
@@ -81,6 +46,9 @@ $(document).ready(function() {
 			block__.classList.add('act_b');
 			window.vars.ActLine=block__;
 		};
+		if (tar_b==document.getElementById("add")){
+			AddBlock(tar_b);
+		}
 	});
 
 	function Choose(cho){
@@ -89,13 +57,13 @@ $(document).ready(function() {
 		});
 	};
 
-
 	//ДОБАВЛЕНИЕ БЛОКА
-	$("#add").click(function(){
+	function AddBlock(th){
+		console.log("CLICK");
 		num_q+=1;
 		num_b+=1;
-		let sideMenu=window.vars.mainActB.querySelector("#side_menu");
-		sideMenu.classList.add('hidden');
+		let parID=th.parentNode.id;
+		document.getElementById(parID).remove();
 		const newBlock =
 		`<div id="" class="mainBlock newB">
 			<div class="block">
@@ -126,12 +94,14 @@ $(document).ready(function() {
 	                </div>                        
 	            </div>
 	        </div>
-	        <div id="side_menu" class="add">
-	            <a href="#" class="fa fa-plus-circle fa-2x" id="add"></a>
-	            <a href="#" class="parag">P</a>
-	            <a href="#" class="fa fa-trash fa-2x" id="del"></a>
-	        </div>
         </div>`;
+        let pp=`
+		<div id="side_menu" class="add">
+	        <a href="#" class="fa fa-plus-circle fa-2x" id="add"></a>
+	        <a href="#" class="parag">P</a>
+	        <a href="#" class="fa fa-trash fa-2x" id="del"></a>
+	    </div>`;
+        let center=document.getElementById("center");
         $(center).append(newBlock);
         let newB=document.querySelector(".newB");
        	newB.id=num_b;
@@ -139,18 +109,16 @@ $(document).ready(function() {
         $(".newB").removeClass('newB');
 		document.querySelector(".numOfQ").value="Вопрос "+num_q;
 		$(".numOfQ").removeClass('numOfQ');
-		createVars(num_q);
 		window.vars.ActLine.classList.remove('act_b');
 		window.vars.ActLine.classList.add('hidden');
 		let b_1=document.getElementById(num_b);
+		$(b_1).append(pp);
 		window.vars.mainActB=b_1;
-		console.log(window.vars.mainActB);
 		let newBlock__=b_1.querySelector(".block__");	
 		newBlock__.classList.remove('hidden');
 		newBlock__.classList.add('act_b');
 		window.vars.ActLine=newBlock__;
-	});
-	
+	};
 
 	//СМЕНА БЛОКА
 	let ChangeBlock=(index) => {
@@ -605,13 +573,21 @@ $(document).ready(function() {
 
 	//УДАЛЕНИЕ БЛОКА
 	$(document).on('click', '#del', function() {
+		let pp=`
+		<div id="side_menu" class="add">
+	        <a href="#" class="fa fa-plus-circle fa-2x" id="add"></a>
+	        <a href="#" class="parag">P</a>
+	        <a href="#" class="fa fa-trash fa-2x" id="del"></a>
+	    </div>`;
 		window.vars.mainActB.remove();
 		window.vars.mainActB=document.getElementById("1");
-		let sideMenu=window.vars.mainActB.querySelector("#side_menu");
-		sideMenu.classList.remove('hidden');
+		let mainActB=window.vars.mainActB;
+		$(mainActB).append(pp);
 		window.vars.ActLine=window.vars.mainActB.querySelector(".block__");
 		window.vars.ActLine.classList.remove('hidden');
 		window.vars.ActLine.classList.add('act_b');
+		num_q-=1;
+		num_b-=1;
 	});
 
 });
