@@ -152,7 +152,7 @@ a {
   display: flex;
 }
 
-.checkbox_header__text, .option, .text, .input_text, .add_form_radio, .add_form_checkbox, .scale_atribut {
+.checkbox_header__text, .scale_text, .option, .text, .input_text, .add_form_radio, .add_form_checkbox, .scale_atribut {
   font-size: 20px;
   line-height: 25px;
   color: #FFFFFF;
@@ -468,11 +468,19 @@ a {
 }
 
 .option_margin:first-of-type {
-  margin: 0 20px 30px 0 !important;
+  margin: 0 20px 30px 10px !important;
 }
 
 .atribut {
   color: #FFF;
+}
+.scale_text{
+  display: inline-block;
+  padding: 15px 25px 15px 25px;
+  margin-right: 10px;
+  border: 1px solid #FFFFFF;
+  background: none;
+  outline: none;
 }
 
 .scale__ {
@@ -482,13 +490,11 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.scale__:last-of-type {
-  margin-top: 30px;
+  margin: 0 0 20px 0;
 }
 
 .scale_atribut {
+  font-size: 22px;
   font-weight: bold;
 }
 

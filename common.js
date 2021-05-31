@@ -162,7 +162,6 @@ $(document).ready(function() {
     			arr_2[l].value="Вариант "+co_2;
     			co_2+=1;
     		};
-    		console.log(NBl);
     		$("#but_2").click(function(){
     			const NewOp_2=`
     			<div class="form_radio">
@@ -226,32 +225,169 @@ $(document).ready(function() {
 			NBl.innerHTML=`
 			<div class="scale">
         		<div class="variants">
-            		<select name="" id="" class="option option_margin">
-                		<option class="option__" value="0">0</option>
+        			<p class="scale_text">1</p>
+            		<!--<select name="" id="" class="option option_margin">
                 		<option class="option__" value="1">1</option>
-            		</select>
+            		</select>-->
             		<span class="atribut">—</span>
-            		<select name="" id="" class="option option_margin">
-                		<option class="option__" value="0">2</option>
-                		<option class="option__" value="1">3</option>
-                		<option class="option__" value="1">4</option>
-                		<option class="option__" value="1">5</option>
-                		<option class="option__" value="1">6</option>
-                		<option class="option__" value="1">7</option>
-                		<option class="option__" value="1">8</option>
-                		<option class="option__" value="1">9</option>
-                		<option class="option__" value="1">10</option>
+            		<select name="" id="selection_scale" class="option option_margin">
+                		<option class="option__" value="1">2</option>
+                		<option class="option__" value="2">3</option>
+                		<option class="option__" value="3">4</option>
+                		<option class="option__" value="4">5</option>
             		</select>
-        		</div>          
-        		<div class="scale__">
-            		<p class="scale_atribut">1</p>
-            		<input class="descript margin_bottom" value="Вариант 1" type="text">
         		</div>
-        		<div class="scale__">
-            		<p class="scale_atribut">2</p>
-            		<input class="descript margin_bottom" value="Вариант 2" type="text">
+        		<div id="pole_4">          
+        			<div class="scale__">
+            			<p id="p_4" class="scale_atribut"></p>
+            			<input id="vars_4" class="descript margin_bottom" value="" type="text">
+        			</div>
+        			<div class="scale__">
+            			<p id="p_4" class="scale_atribut"></p>
+            			<input id="vars_4" class="descript margin_bottom" value="" type="text">
+        			</div>
         		</div>
-    		</div>`
+    		</div>`;
+    		let arr_4=[];
+    		let arr_p=[];
+    		let co_4=1;
+    		let numOp=1;
+    		arr_4=this.querySelectorAll("#vars_4");
+    		arr_p=this.querySelectorAll("#p_4");
+    		for (var u=0; u<arr_p.length; u++ ){
+    			arr_p[u].textContent=numOp;
+    			numOp+=1;
+    		};
+    		for (var l=0; l<arr_4.length; l++ ){
+    			arr_4[l].value="Вариант "+co_4;
+    			co_4+=1;
+    		};
+
+    		let selection_scale=NBl.querySelector("#selection_scale");
+    		selection_scale.addEventListener('change', function(c){
+				addVars(c.target.value);
+			});
+			function addVars(quant){
+				let pole_4=NBl.querySelector("#pole_4");
+				let NewOp_4=`
+				<div class="scale__">
+            		<p id="p_4" class="scale_atribut"></p>
+            		<input id="vars_4" class="descript margin_bottom" value="" type="text">
+        		</div>`;
+				if (quant==1){
+					pole_4.innerHTML=`
+					<div class="scale__">
+            			<p id="p_4" class="scale_atribut"></p>
+            			<input id="vars_4" class="descript margin_bottom" value="" type="text">
+        			</div>
+        			<div class="scale__">
+            			<p id="p_4" class="scale_atribut"></p>
+            			<input id="vars_4" class="descript margin_bottom" value="" type="text">
+        			</div>`;
+        			let arr_4=[];
+    				let arr_p=[];
+    				let co_4=1;
+    				let numOp=1;
+    				arr_4=NBl.querySelectorAll("#vars_4");
+    				arr_p=NBl.querySelectorAll("#p_4");
+    				for (var u=0; u<arr_p.length; u++ ){
+    					arr_p[u].textContent=numOp;
+    					numOp+=1;
+    				};
+    				for (var l=0; l<arr_4.length; l++ ){
+    					arr_4[l].value="Вариант "+co_4;
+    					co_4+=1;
+    				};
+				};
+				if (quant==2){
+					pole_4.innerHTML=`
+					<div class="scale__">
+            			<p id="p_4" class="scale_atribut"></p>
+            			<input id="vars_4" class="descript margin_bottom" value="" type="text">
+        			</div>
+        			<div class="scale__">
+            			<p id="p_4" class="scale_atribut"></p>
+            			<input id="vars_4" class="descript margin_bottom" value="" type="text">
+        			</div>`;
+					max_len=3;
+					for (var m=2; m<max_len; m++){
+						$(pole_4).append(NewOp_4);
+					};
+					arr_4=[];
+    				arr_p=[];
+					numOp=1;
+					co_4=1;
+					arr_4=NBl.querySelectorAll("#vars_4");
+    				arr_p=NBl.querySelectorAll("#p_4");
+					for (var u=0; u<max_len; u++ ){
+    					arr_p[u].textContent=numOp;
+    					numOp+=1;
+    				};
+    				for (var l=0; l<max_len; l++ ){
+    					arr_4[l].value="Вариант "+co_4;
+    					co_4+=1;
+    				};
+				};
+				if (quant==3){
+					pole_4.innerHTML=`
+					<div class="scale__">
+            			<p id="p_4" class="scale_atribut"></p>
+            			<input id="vars_4" class="descript margin_bottom" value="" type="text">
+        			</div>
+        			<div class="scale__">
+            			<p id="p_4" class="scale_atribut"></p>
+            			<input id="vars_4" class="descript margin_bottom" value="" type="text">
+        			</div>`;
+					max_len=4;
+					for (var m=2; m<max_len; m++){
+						$(pole_4).append(NewOp_4);
+					};
+					arr_4=[];
+    				arr_p=[];
+					numOp=1;
+					co_4=1;
+					arr_4=NBl.querySelectorAll("#vars_4");
+    				arr_p=NBl.querySelectorAll("#p_4");
+					for (var u=0; u<max_len; u++ ){
+    					arr_p[u].textContent=numOp;
+    					numOp+=1;
+    				};
+    				for (var l=0; l<max_len; l++ ){
+    					arr_4[l].value="Вариант "+co_4;
+    					co_4+=1;
+    				};
+				};
+				if (quant==4){
+					pole_4.innerHTML=`
+					<div class="scale__">
+            			<p id="p_4" class="scale_atribut"></p>
+            			<input id="vars_4" class="descript margin_bottom" value="" type="text">
+        			</div>
+        			<div class="scale__">
+            			<p id="p_4" class="scale_atribut"></p>
+            			<input id="vars_4" class="descript margin_bottom" value="" type="text">
+        			</div>`;
+					max_len=5;
+					for (var m=2; m<max_len; m++){
+						$(pole_4).append(NewOp_4);
+					};
+					arr_4=[];
+    				arr_p=[];
+					numOp=1;
+					co_4=1;
+					arr_4=NBl.querySelectorAll("#vars_4");
+    				arr_p=NBl.querySelectorAll("#p_4");
+					for (var u=0; u<max_len; u++ ){
+    					arr_p[u].textContent=numOp;
+    					numOp+=1;
+    				};
+    				for (var l=0; l<max_len; l++ ){
+    					arr_4[l].value="Вариант "+co_4;
+    					co_4+=1;
+    				};
+				};
+			};
+			
 		}
 		else if (index==5){
 			NBl.innerHTML=`
