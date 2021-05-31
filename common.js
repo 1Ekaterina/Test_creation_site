@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-	//ЛОКАЛЬНЫЕ ПЕРЕМЕННЫЕ
+	//ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ
 	window.vars={
 		SelB: "",
 		newActB:"",
@@ -580,7 +580,7 @@ $(document).ready(function() {
 	        <a href="#" class="fa fa-trash fa-2x" id="del"></a>
 	    </div>`;
 		window.vars.mainActB.remove();
-		window.vars.mainActB=document.getElementById("1");
+		window.vars.mainActB=document.querySelector(".mainBlock");
 		let mainActB=window.vars.mainActB;
 		$(mainActB).append(pp);
 		window.vars.ActLine=window.vars.mainActB.querySelector(".block__");
